@@ -1,43 +1,37 @@
 import json
 import random
 
+#### Demo: l, p, pp, !
+# import pdb; pdb.set_trace()
 raw = json.loads(open("jeopardy.json", "r").read())
 
 by_category = {}
 filter_keys = ['question', 'answer', 'value']
 
-# ingest the raw data, filter it, and organize it by category
+# ingest the raw data, filter for the items we want, and organize it by category
 for item in raw[:200]:
+  ### Demo 2: n, c, q
+  # import pdb; pdb.set_trace()
   category = item['category']
   if category in by_category.keys():
     by_category[category].append({key: item[key] for key in filter_keys})
   else:
     by_category[category] = [item]
 
-# breakpoint()
-
-
 def get_questions(category):
+  # Returns all questions from the dataset that match the given category
   return by_category.get(str.upper(category), [])
 
 
 def get_question(category):
+  # Returns a random question (question text only) from the given category
   return random.choice(get_questions("architects"))
 
+## Demo 3: s, u, d
+# import pdb; pdb.set_trace()
 
-breakpoint()
 question = get_question("architects")
-breakpoint()
-
-# popularity = [0] * len(by_category.items())
-# MAX = ["", 0]
-# for key, val in by_category.items():
-#   popularity[len(val)]+= 1
-#   if popularity[len(val)] > MAX[1]:
-#     MAX[0] = key
-#     MAX[1] = popularity[len(val)]
-
-
+print(question["question"])
 
 
 
