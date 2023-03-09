@@ -7,15 +7,17 @@
 # If you use "test_input.txt", a() should print out 22 and b() should print out 23.
 # If you use "input.txt", a() should print out 8890 and b() should print out 10238.
 
-# Some things you might want to practice:
-# - use
+# Some things you might want to practice (for this section, run the script with `python -m pdb 03_buggy_code.py`)
+# - use b(reak) to set a breakpoint at a specific line
+# - use tbreak to set a breakpoint that will only be hit once
+# - use cl(ear) or disable to turn off breakpoints
+# - use restart to rerun the script with your changed breakpoints
 
 
 with open("test_input.txt") as f:
     rounds = [
         line.split(";") for line in [line.replace("\n", "") for line in f.readlines()]
     ]
-breakpoint()
 moves = "ABCXYZZs"
 scores = {0: 3, 1: 6, 2: 0}
 outcomes = {"X": 2, "Y": 0, "Z": 1}
