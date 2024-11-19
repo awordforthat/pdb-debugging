@@ -22,7 +22,6 @@ for item in data:
 
 def get_questions(category):
     # Returns all questions from the dataset that match the given category
-    breakpoint()
     return by_category.get(str.upper(category), [])
 
 
